@@ -5,6 +5,7 @@ plugins {
     alias(libs.plugins.secrets)
     alias(libs.plugins.hilt)
     alias(libs.plugins.ksp)
+    alias(libs.plugins.kapt)
     alias(libs.plugins.kotlin.serialization)
 }
 
@@ -67,7 +68,15 @@ dependencies {
     implementation(files("../libs/app-remote-lib/spotify-app-remote-release-0.8.0.aar"))
     implementation(libs.gson)
     implementation(libs.hilt.android)
-    ksp(libs.hilt.compiler)
+    kapt(libs.hilt.compiler)
+    kapt(libs.hilt.ext.compiler)
+
     implementation(libs.androidx.navigation.compose)
 
+    implementation(libs.timber)
+
+    implementation(libs.androidx.core.splashscreen)
+}
+kapt {
+    correctErrorTypes = true
 }

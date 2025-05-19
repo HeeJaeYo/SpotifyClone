@@ -14,13 +14,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import com.gmlwo22.spotifyclone.ui.theme.SpotifyCloneTheme
 import com.spotify.android.appremote.api.SpotifyAppRemote
-import com.spotify.android.appremote.api.ConnectionParams
-import com.spotify.android.appremote.api.Connector
-import com.spotify.protocol.client.Subscription
-import com.spotify.protocol.types.PlayerState
-import com.spotify.protocol.types.Track
 import com.spotify.sdk.android.auth.AuthorizationClient
 import com.spotify.sdk.android.auth.AuthorizationRequest
 import com.spotify.sdk.android.auth.AuthorizationResponse
@@ -33,6 +29,7 @@ class MainActivity : ComponentActivity() {
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        val splashScreen = installSplashScreen()
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
@@ -53,7 +50,7 @@ class MainActivity : ComponentActivity() {
         val builder = AuthorizationRequest.Builder(clientId, AuthorizationResponse.Type.CODE, redirectUrl)
         builder.setScopes(arrayOf("streaming"))
         val request = builder.build()
-        AuthorizationClient.openLoginActivity(this, 1337, request)
+        //AuthorizationClient.openLoginActivity(this, AuthorizationRequest. , request)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?, caller: ComponentCaller) {
