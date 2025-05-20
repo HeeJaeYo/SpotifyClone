@@ -68,6 +68,7 @@ dependencies {
     implementation(files("../libs/app-remote-lib/spotify-app-remote-release-0.8.0.aar"))
     implementation(libs.gson)
     implementation(libs.hilt.android)
+    implementation(libs.androidx.navigation.hilt)
     kapt(libs.hilt.compiler)
     kapt(libs.hilt.ext.compiler)
 
